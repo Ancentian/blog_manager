@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -32,9 +34,46 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function articleSave(Request $request)
     {
-        //
+        $request->validate([
+            'title'    => 'required|string',
+            'excerpt'     => 'required|string',
+            'body'        => 'required',
+            'post_date' => 'required',
+            'author'          => 'required|string',
+            'upload'        => 'required|image',
+        ]);
+
+        dd($request);
+        
+        DB::beginTransaction();
+        try {
+           
+            $upload_file = rand() . '.' . $request->upload->extension();
+            $request->upload->move(storage_path('app/public/blog-photos/'), $upload_file);
+            if(!empty($request->upload)) {
+                $article = new Article;
+                $article->title   = $request->title;
+                $article->excerpt    = $request->excerpt;
+                $article->body       = $request->body;
+                $article->upload = $upload_file;
+                $article->post_date = $request->post_date;
+                $article->author         = $request->author;
+                
+                $article->save();
+
+                Toastr::success('Article added successfully :)','Success');
+                DB::commit();
+            }
+
+            return redirect()->back();
+           
+        } catch(\Exception $e) {
+            DB::rollback();
+            Toastr::error('fail, Add new Article  :)','Error');
+            return redirect()->back();
+        }
     }
 
     /**

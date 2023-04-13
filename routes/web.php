@@ -113,7 +113,7 @@ Route::controller(StudentController::class)->group(function () {
 Route::controller(ArticleController::class)->group(function () {
     Route::get('blogs/list', 'index')->middleware('auth')->name('blogs/list');
     Route::get('blogs/add', 'addBlog')->middleware('auth')->name('blogs/addBlog');
-    Route::post('student/add/save', 'studentSave')->name('student/add/save'); // save record student
+    Route::post('article/save', 'articleSave')->name('article.save'); // save record student
     Route::get('student/edit/{id}', 'studentEdit'); // view for edit
     Route::post('student/update', 'studentUpdate')->name('student/update'); // update record student
     Route::post('student/delete', 'studentDelete')->name('student/delete'); // delete record student
