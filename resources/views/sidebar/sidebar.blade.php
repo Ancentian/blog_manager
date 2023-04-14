@@ -46,14 +46,14 @@
                         <li><a href=""  class="{{ (request()->is('student/profile/*')) ? 'active' : '' }}">Student View</a></li>
                     </ul>
                 </li>
-                <li class="submenu {{set_active(['blogs/list','blogs/addBlog'])}} {{ (request()->is('student/edit/*')) ? 'active' : '' }}">
+                <li class="submenu {{set_active(['articles/list','articles/addBlog'])}} {{ (request()->is('student/edit/*')) ? 'active' : '' }}">
                     <a href="#"><i class="fas fa-graduation-cap"></i>
                         <span> Blogs</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a href="{{ route('blogs/list') }}"  class="{{set_active(['blogs/list'])}}">Blogs List</a></li>
-                        <li><a href="{{ route('blogs/addBlog') }}" class="{{set_active(['blogs/addBlog'])}}">Blog Add</a></li>
+                        <li><a href="{{ route('articles/list') }}"  class="{{set_active(['articles/list'])}}">Blogs List</a></li>
+                        <li><a href="{{ route('articles/addBlog') }}" class="{{set_active(['articles/addBlog'])}}">Blog Add</a></li>
                     </ul>
                 </li>
             </ul>
