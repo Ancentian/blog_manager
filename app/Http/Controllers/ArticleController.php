@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 
 class ArticleController extends Controller
 {
@@ -15,7 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('articles.index');
+        $articles = Article::all();
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -40,18 +42,16 @@ class ArticleController extends Controller
             'title'    => 'required|string',
             'excerpt'     => 'required|string',
             'body'        => 'required',
-            'post_date' => 'required',
-            'author'          => 'required|string',
             'upload'        => 'required|image',
+            'post_date' => 'required',
+            'author'          => 'required|string', 
         ]);
-
-        dd($request);
         
         DB::beginTransaction();
         try {
            
             $upload_file = rand() . '.' . $request->upload->extension();
-            $request->upload->move(storage_path('app/public/blog-photos/'), $upload_file);
+            $request->upload->move(storage_path('app/public/blog_photos/'), $upload_file);
             if(!empty($request->upload)) {
                 $article = new Article;
                 $article->title   = $request->title;
@@ -67,7 +67,7 @@ class ArticleController extends Controller
                 DB::commit();
             }
 
-            return redirect()->back();
+            return redirect()->route('articles/save');
            
         } catch(\Exception $e) {
             DB::rollback();

@@ -9,7 +9,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\TypeFormController;
 use App\Http\Controllers\Setting;
-use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AmaniController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ArticleController;
@@ -111,10 +110,10 @@ Route::controller(StudentController::class)->group(function () {
 
 // ------------------------ Blogs -------------------------------//
 Route::controller(ArticleController::class)->group(function () {
-    Route::get('blogs/list', 'index')->middleware('auth')->name('blogs/list');
-    Route::get('blogs/add', 'addBlog')->middleware('auth')->name('blogs/addBlog');
+    Route::get('articles/list', 'index')->middleware('auth')->name('articles/list');
+    Route::get('articles/add', 'addBlog')->middleware('auth')->name('articles/addBlog');
     Route::post('article/save', 'articleSave')->name('article.save'); // save record student
-    Route::get('student/edit/{id}', 'studentEdit'); // view for edit
+    Route::get('article/edit/{id}', 'articleEdit'); // view for edit
     Route::post('student/update', 'studentUpdate')->name('student/update'); // update record student
     Route::post('student/delete', 'studentDelete')->name('student/delete'); // delete record student
     Route::get('student/profile/{id}', 'studentProfile')->middleware('auth'); // profile student
