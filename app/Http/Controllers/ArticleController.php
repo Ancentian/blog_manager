@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -17,6 +18,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        
         return view('articles.index', compact('articles'));
     }
 
@@ -27,7 +29,14 @@ class ArticleController extends Controller
      */
     public function addBlog()
     {
-        return view('articles.add');
+        $tags = Tag::all();
+        return view('articles.add', compact('tags'));
+    }
+
+    public function tags()
+    {
+        $tags = Tag::all();
+        return view('articles.tags', compact('tags'));
     }
 
     /**
@@ -38,11 +47,13 @@ class ArticleController extends Controller
      */
     public function articleSave(Request $request)
     {
+        //dd('ancent');
         $request->validate([
             'title'    => 'required|string',
             'excerpt'     => 'required|string',
             'body'        => 'required',
             'upload'        => 'required|image',
+            'tag_id'      => 'required',
             'post_date' => 'required',
             'author'          => 'required|string', 
         ]);
@@ -58,20 +69,47 @@ class ArticleController extends Controller
                 $article->excerpt    = $request->excerpt;
                 $article->body       = $request->body;
                 $article->upload = $upload_file;
+                $article->tag_id = $request->tag_id;
                 $article->post_date = $request->post_date;
                 $article->author         = $request->author;
                 
                 $article->save();
 
-                Toastr::success('Article added successfully :)','Success');
+                Toastr::success('Article added Successfully','Success');
                 DB::commit();
             }
 
-            return redirect()->route('articles/save');
+            return redirect()->route('articles/list');
            
         } catch(\Exception $e) {
             DB::rollback();
-            Toastr::error('fail, Add new Article  :)','Error');
+            Toastr::error('Failed, Try Again!','Error');
+            return redirect()->back();
+        }
+    }
+
+    public function storeTag(Request $request)
+    {
+        //dd('ancent');
+        $request->validate([
+            'tag_name'    => 'required|string|unique:tags',
+        ]);
+        
+        DB::beginTransaction();
+        try {
+                $tag = new Tag;
+                $tag->tag_name   = $request->tag_name;
+
+                $tag->save();
+
+                Toastr::success('Tag added Successfully','Success');
+                DB::commit();
+
+            return redirect()->route('articles.tags');
+           
+        } catch(\Exception $e) {
+            DB::rollback();
+            Toastr::error('Fail, Try Again!','Error');
             return redirect()->back();
         }
     }

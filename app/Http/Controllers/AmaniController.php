@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Models\Article;
+
 use Illuminate\Http\Request;
 
 class AmaniController extends Controller
@@ -13,7 +16,8 @@ class AmaniController extends Controller
      */
     public function index()
     {
-        return view('blogs.index');
+        $articles = Article::all();
+        return view('set.index', compact('articles'));
     }
 
     /**
@@ -26,9 +30,15 @@ class AmaniController extends Controller
         return view('blogs.blog-details');
     }
 
+    public function singleBlog($id)
+    {
+        $article = Article::where('id',$id)->first();
+        return view('set.singleBlog', compact('article'));
+    }
+
     public function contact()
     {
-        return view('blogs.contact');
+        return view('set.contact');
     }
 
     /**

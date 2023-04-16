@@ -13,6 +13,7 @@ class Article extends Model
         'excerpt',
         'body',
         'upload',
+        'tag_id',
         'post_date',
         'author'
     ];
