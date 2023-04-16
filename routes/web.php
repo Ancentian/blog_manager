@@ -40,6 +40,7 @@ function set_active( $route ) {
 Route::controller(AmaniController::class)->group(function () {
     Route::get('/', 'index')->name('blog');
     Route::get('/blogDetails', 'blogDetails')->name('blogDetails');
+    Route::get('singleBlog/{id}', 'singleBlog');
     Route::get('/contact', 'contact')->name('contact');
 });
 
@@ -114,7 +115,8 @@ Route::controller(ArticleController::class)->group(function () {
     Route::get('articles/add', 'addBlog')->middleware('auth')->name('articles/addBlog');
     Route::post('article/save', 'articleSave')->name('article.save'); // save record student
     Route::get('article/edit/{id}', 'articleEdit'); // view for edit
-    Route::post('student/update', 'studentUpdate')->name('student/update'); // update record student
+    Route::get('articles/tags', 'tags')->name('articles.tags');
+    Route::post('tags/store', 'storeTag')->name('store.tag');
     Route::post('student/delete', 'studentDelete')->name('student/delete'); // delete record student
     Route::get('student/profile/{id}', 'studentProfile')->middleware('auth'); // profile student
 

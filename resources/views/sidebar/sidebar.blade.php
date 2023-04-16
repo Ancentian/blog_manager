@@ -54,6 +54,7 @@
                     <ul>
                         <li><a href="{{ route('articles/list') }}"  class="{{set_active(['articles/list'])}}">Blogs List</a></li>
                         <li><a href="{{ route('articles/addBlog') }}" class="{{set_active(['articles/addBlog'])}}">Blog Add</a></li>
+                        <li><a href="{{ route('articles.tags') }}" class="{{set_active(['articles.tags'])}}">Category</a></li>
                     </ul>
                 </li>
             </ul>

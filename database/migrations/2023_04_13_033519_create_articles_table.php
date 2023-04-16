@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('excerpt');
             $table->text('body');
             $table->text('upload')->nullable();
+            $table->string('tag_id');
             $table->string('post_date');
             $table->string('author')->nullable();
             $table->timestamps();
+
         });
     }
 
