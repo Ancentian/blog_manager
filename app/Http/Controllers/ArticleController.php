@@ -50,6 +50,7 @@ class ArticleController extends Controller
         //dd('ancent');
         $request->validate([
             'title'    => 'required|string',
+            'introduction'    => '',
             'excerpt'     => 'required|string',
             'body'        => 'required',
             'upload'        => 'required|image',
@@ -66,6 +67,7 @@ class ArticleController extends Controller
             if(!empty($request->upload)) {
                 $article = new Article;
                 $article->title   = $request->title;
+                $article->introduction = $request->introduction;
                 $article->excerpt    = $request->excerpt;
                 $article->body       = $request->body;
                 $article->upload = $upload_file;

@@ -2250,4 +2250,49 @@ body.mobile-nav-active #mobile-nav-toggle {
   .f_social_wd .f_social a:last-child {
     margin-right: 0px; }
 
+
+    /* Box Frankie's Take
+--------------------------------------------- */
+.alert-info.info-box-main { 
+background-color: #fff;  
+padding: 1.25rem 1rem; 
+border: 2px dashed #aaa; 
+border-radius: 5px;
+margin-bottom: 25px;
+} 
+.info-box-main .pull-xs-left { 
+float: left!important; 
+} 
+.info-box-main .sc-title{ 
+font-size: 22px; 
+font-weight: 600; 
+font-style: normal; 
+display: block; 
+} 
+.info-box-main .sc-picture{ 
+margin: 0px; 
+} 
+.info-box-main .sc-picture img{ 
+width: 80px; 
+height: 80px; 
+border-radius: 50%; 
+} 
+@media (min-width: 768px){ 
+.info-box-main .sc-picture { 
+padding-right: 1.5rem; 
+} 
+.info-box-main .sc-title { 
+margin: 0 0 1.25rem; 
+} 
+} 
+@media(max-width: 767px){ 
+.info-box-main .custom-p{ 
+margin-top: 30px ; 
+} 
+.info-box-main .sc-title{ 
+margin-left: 86px; 
+
+} 
+}
+
 /*# sourceMappingURL=main.css.map */

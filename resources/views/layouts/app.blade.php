@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/select2/css/select2.min.css') }}">
+
     <link rel="stylesheet" href="{{ URL::to('assets/css/style.css') }}">
     {{-- message toastr --}}
 	<link rel="stylesheet" href="{{ URL::to('assets/css/toastr.min.css') }}">
@@ -42,7 +43,7 @@
     <script src="{{ URL::to('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/feather.min.js') }}"></script>
     <script src="{{ URL::to('assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ URL::to('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/script.js') }}"></script>
 </body>
-
 </html>

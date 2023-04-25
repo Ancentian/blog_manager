@@ -22,6 +22,51 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ asset('set/css/style.css')}}">
+  <style type="text/css">
+  	/* Box Frankie's Take
+--------------------------------------------- */
+.alert-info.info-box-main { 
+background-color: #fff;  
+padding: 1.25rem 1rem; 
+border: 2px dashed #aaa; 
+border-radius: 5px;
+margin-bottom: 25px;
+} 
+.info-box-main .pull-xs-left { 
+float: left!important; 
+} 
+.info-box-main .sc-title{ 
+font-size: 22px; 
+font-weight: 600; 
+font-style: normal; 
+display: block; 
+} 
+.info-box-main .sc-picture{ 
+margin: 0px; 
+} 
+.info-box-main .sc-picture img{ 
+width: 80px; 
+height: 80px; 
+border-radius: 50%; 
+} 
+@media (min-width: 768px){ 
+.info-box-main .sc-picture { 
+padding-right: 1.5rem; 
+} 
+.info-box-main .sc-title { 
+margin: 0 0 1.25rem; 
+} 
+} 
+@media(max-width: 767px){ 
+.info-box-main .custom-p{ 
+margin-top: 30px ; 
+} 
+.info-box-main .sc-title{ 
+margin-left: 86px; 
+
+} 
+}
+  </style>
 
 </head>
 
@@ -133,7 +178,19 @@
 
 				<p>{!! $article->body !!}</p>
 
-				<h3 class="quote">{{$article->excerpt}}</h3>
+				<!-- <h3 class="quote">{{$article->excerpt}}</h3> -->
+				<div class="sc-brians-take alert alert-info info-box-main">
+<figure class="sc-picture pull-xs-left">
+	<img class="lazyload" decoding="async" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" data-src="https://messagingapplab.com/wp-content/uploads/2019/03/Frankie-Caruso-1.png" alt="Frankie-Caruso" width="94" height="94">
+	<noscript>
+		<img class="lazyload" decoding="async" src="https://messagingapplab.com/wp-content/uploads/2019/03/Frankie-Caruso-1.png" alt="Frankie-Caruso" width="94" height="94">
+	</noscript>
+</figure>
+<p>
+	<cite class="sc-title"><br>{{$article->author}}'s Take:<br></cite>
+</p>
+<p class="custom-p">{{$article->excerpt}}</p>
+</div>
 				
 				<p class="lead mb-4 font-weight-normal text-black">The same is true as we experience the emotional sensation of stress from our first instances of social rejection ridicule. We quickly learn to fear and thus automatically.</p>
 
