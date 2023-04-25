@@ -35,9 +35,22 @@
                                     </div>
                                 </div>
 
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Introduction</label>
+                                        <textarea name="introduction" class="form-control @error('introduction') is-invalid @enderror" >{{ old('introduction') }}</textarea>
+                                        <!-- <div id="editor" name="body"></div> -->
+                                        @error('introduction')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </div>
+                                </div>
+
                                 <div class="form-group local-forms">
                                             <label>Excerpt <span class="login-danger">*</span></label>
-                                            <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" rows="1">{{ old('excerpt') }}</textarea>
+                                            <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt"  id="editor">{{ old('excerpt') }}</textarea>
                                             @error('excerpt')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -48,7 +61,7 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Body</label>
-                                        <textarea name="body" class="form-control @error('body') is-invalid @enderror" id="editor">{{ old('body') }}</textarea>
+                                        <textarea name="body" class="form-control @error('body') is-invalid @enderror" id="summernote">{{ old('body') }}</textarea>
                                         <!-- <div id="editor" name="body"></div> -->
                                         @error('body')
                                                 <span class="invalid-feedback" role="alert">
@@ -57,12 +70,7 @@
                                             @enderror
                                     </div>
                                 </div>
-                                <!-- <div class="col-lg-12 col-md-12">
-                                    <div class="form-group">
-                                        <label>Body<span class="text-danger">*</span></label>
-                                        <input type="text" name="body" class="form-control">
-                                    </div>
-                                </div> -->
+                                
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Blog Image</label>
