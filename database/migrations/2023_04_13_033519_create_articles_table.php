@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('introduction')->nullable();
-            $table->string('excerpt');
+            $table->text('excerpt');
             $table->text('body');
             $table->text('upload')->nullable();
             $table->string('tag_id');

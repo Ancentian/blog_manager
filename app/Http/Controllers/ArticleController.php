@@ -58,7 +58,7 @@ class ArticleController extends Controller
             'post_date' => 'required',
             'author'          => 'required|string', 
         ]);
-        
+        //dd($request);
         DB::beginTransaction();
         try {
            
@@ -74,7 +74,7 @@ class ArticleController extends Controller
                 $article->tag_id = $request->tag_id;
                 $article->post_date = $request->post_date;
                 $article->author         = $request->author;
-                
+                //dd($article);
                 $article->save();
 
                 Toastr::success('Article added Successfully','Success');
