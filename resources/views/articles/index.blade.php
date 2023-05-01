@@ -40,7 +40,7 @@
                             </li>
                         </ul>
                         <h3 class="blog-title"><a href="blog-details.html">{{$key->tittle}} </a></h3>
-                        <p>{{$key->excerpt}}</p>
+                        <p>{!!$key->excerpt!!}</p>
                     </div>
                     <div class="row">
                         <div class="edit-options">

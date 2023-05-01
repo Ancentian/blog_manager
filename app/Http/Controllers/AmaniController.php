@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\Article;
+use App\Models\Tag;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str; 
 
 class AmaniController extends Controller
 {
@@ -16,8 +19,18 @@ class AmaniController extends Controller
      */
     public function index()
     {
+        $articles = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
+        $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(3)->get();
+        $blogs = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
+        return view('set.index', compact('articles', 'tags', 'blogs'));
+    }
+
+    public function blogs()
+    {
         $articles = Article::latest()->get();
-        return view('set.index', compact('articles'));
+        $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(10)->get();
+        $blogs = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
+        return view('set.blogs', compact('articles', 'tags', 'blogs'));
     }
 
     /**
@@ -32,13 +45,33 @@ class AmaniController extends Controller
 
     public function singleBlog($id)
     {
-        $article = Article::where('id',$id)->first();
-        return view('set.singleBlog', compact('article'));
+        //$article = Article::where('id',$id)->first();
+        $article = DB::table('articles')
+            ->where('articles.id', '=', $id)
+            ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
+            ->select('articles.*', 'tags.tag_name')
+            ->get()->first();
+        $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(10)->get();
+        $articles = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
+        return view('set.singleBlog', compact('article', 'articles', 'tags'));
     }
 
     public function contact()
     {
         return view('set.contact');
+    }
+
+    public function blogsByCategory($id)
+    {
+        $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(10)->get();
+        $blogs = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
+        $articles = DB::table('articles')
+            ->where('articles.tag_id', '=', $id)
+            ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
+            ->select('articles.*', 'tags.id', 'tags.tag_name')
+            ->get();
+            //dd($articles);
+            return view('set.blogsByCategory', compact('articles', 'tags', 'blogs'));
     }
 
     /**

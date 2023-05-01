@@ -1417,4 +1417,169 @@ h3.quote::before {
   }
 }
 
+/* Ancent CSS */
+/* Box Frankie's Take
+		--------------------------------------------- */
+		.alert-info.info-box-main { 
+			background-color: #fff;  
+			padding: 1.25rem 1rem; 
+			border: 2px dashed #aaa; 
+			border-radius: 5px;
+			margin-bottom: 25px;
+		} 
+		.info-box-main .pull-xs-left { 
+			float: left!important; 
+		} 
+		.info-box-main .sc-title{ 
+			font-size: 22px; 
+			font-weight: 600; 
+			font-style: normal; 
+			display: block; 
+		} 
+		.info-box-main .sc-picture{ 
+			margin: 0px; 
+		} 
+		.info-box-main .sc-picture img{ 
+			width: 80px; 
+			height: 80px; 
+			border-radius: 50%; 
+		} 
+		@media (min-width: 768px){ 
+			.info-box-main .sc-picture { 
+				padding-right: 1.5rem; 
+			} 
+			.info-box-main .sc-title { 
+				margin: 0 0 1.25rem; 
+			} 
+		} 
+		@media(max-width: 767px){ 
+			.info-box-main .custom-p{ 
+				margin-top: 30px ; 
+			} 
+			.info-box-main .sc-title{ 
+				margin-left: 86px; 
+				
+			} 
+		}
+		/* Image Slider */
+		.carousel {
+  position: relative;
+}
+
+.carousel-item {
+  height: 100vh;
+}
+
+.carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  max-width: none;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+  text-transform: uppercase;
+  font-weight: bold;
+
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-caption h5 {
+  display: inline-block;
+  animation-duration: 3s;
+  animation-name: slideInFromLeft;
+  color: white;
+  font-size: 1em;
+}
+
+.carousel-caption p {
+  display: inline-block;
+  animation-duration: 3s;
+  animation-name: slideInFromRight;
+  color: red;
+  font-size: 1em;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.social-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: rotateY(180deg);
+}
+
+.social-icon:hover i {
+  color: #fff;
+}
+
+.social-icon i {
+  display: block;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  color: #3b5998; /* Facebook color */
+}
+
+.social-icon:nth-child(2) i {
+  color: #1da1f2; /* Twitter color */
+}
+
+.social-icon:nth-child(3) i {
+  color: #e1306c; /* Instagram color */
+}
+
+.social-icon:nth-child(4) i {
+  color: #0077b5; /* LinkedIn color */
+}
+
+.social-icon:nth-child(5) i {
+  color: #25d366; /* WhatsApp color */
+}
+
 /*# sourceMappingURL=maps/style.css.map */

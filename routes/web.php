@@ -38,10 +38,13 @@ function set_active( $route ) {
 
 // ----------------------------login ------------------------------//
 Route::controller(AmaniController::class)->group(function () {
-    Route::get('/', 'index')->name('blog');
+    Route::get('/', 'index')->name('blogIndex');
+    Route::get('/blogs', 'blogs')->name('blogs');
     Route::get('/blogDetails', 'blogDetails')->name('blogDetails');
     Route::get('singleBlog/{id}', 'singleBlog');
     Route::get('/contact', 'contact')->name('contact');
+    Route::get('blogsByCategory/{id}', 'blogsByCategory');
+
 });
 
 Route::group(['middleware'=>'auth'],function()
