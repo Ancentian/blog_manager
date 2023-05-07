@@ -10,23 +10,12 @@ use Brian2694\Toastr\Facades\Toastr;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $articles = Article::all();
-        
+        $articles = Article::latest()->paginate(6);  
         return view('articles.index', compact('articles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function addBlog()
     {
         $tags = Tag::all();
@@ -39,15 +28,8 @@ class ArticleController extends Controller
         return view('articles.tags', compact('tags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function articleSave(Request $request)
     {
-        //dd('ancent');
         $request->validate([
             'title'    => 'required|string',
             'introduction'    => '',
@@ -58,7 +40,6 @@ class ArticleController extends Controller
             'post_date' => 'required',
             'author'          => 'required|string', 
         ]);
-        //dd($request);
         DB::beginTransaction();
         try {
            
@@ -74,13 +55,10 @@ class ArticleController extends Controller
                 $article->tag_id = $request->tag_id;
                 $article->post_date = $request->post_date;
                 $article->author         = $request->author;
-                //dd($article);
                 $article->save();
-
                 Toastr::success('Article added Successfully','Success');
                 DB::commit();
             }
-
             return redirect()->route('articles/list');
            
         } catch(\Exception $e) {
@@ -92,11 +70,9 @@ class ArticleController extends Controller
 
     public function storeTag(Request $request)
     {
-        //dd('ancent');
         $request->validate([
             'tag_name'    => 'required|string|unique:tags',
-        ]);
-        
+        ]);     
         DB::beginTransaction();
         try {
                 $tag = new Tag;
@@ -116,48 +92,38 @@ class ArticleController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function showArticle($id)
     {
-        //
+        return view('articles.view');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function deleteArticle(Request $request)
     {
-        //
+        //dd($request);
+        DB::beginTransaction();
+        try {     
+            if (!empty($request->id)) {
+                Article::destroy($request->id);
+                unlink(storage_path('app/public/blog_photos/'.$request->upload));
+                DB::commit();
+                Toastr::success('Article deleted successfully','Success');
+                return redirect()->back();
+            }
+    
+        } catch(\Exception $e) {
+            DB::rollback();
+            Toastr::error('Failed! Try Again. :)','Error');
+            return redirect()->back();
+        }
     }
 }

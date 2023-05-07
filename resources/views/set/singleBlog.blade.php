@@ -18,10 +18,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
-		
-		
-		
+		</section>	
 		<section class="section blog-wrap bg-gray">
 			<div class="container">
 				<div class="row">
@@ -84,17 +81,34 @@
 										<div class="tag-option mt-5 clearfix">
 											<ul class="float-left list-inline"> 
 												<li>Tags:</li> 
-												<li class="list-inline-item"><a href="#" rel="tag">Advancher</a></li>
-												<li class="list-inline-item"><a href="#" rel="tag">Landscape</a></li>
-												<li class="list-inline-item"><a href="#" rel="tag">Travel</a></li>
+												@foreach($tags as $tag)
+												<li class="list-inline-item"><a href="{{ url('blogsByCategory/'.$tag->id) }}" rel="tag">{{$tag->tag_name}}</a></li>|
+												@endforeach
 											</ul>        
 											
 											<ul class="float-right list-inline">
-												<li class="list-inline-item"> Share: </li>
-												<li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-												<li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-												<li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-												<li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+												<li class="list-inline-item">
+													<a href="#" class="social-icon" style="background-color: #3b5998;">
+													  <i class="fab fa-facebook" style="color: #fff;"></i>
+													</a>
+												  </li>
+												  <li class="list-inline-item">
+													<a href="#" class="social-icon" style="background-color: #1da1f2;">
+													  <i class="fab fa-twitter" style="color: #fff;"></i>
+													</a>
+												  </li>
+												  <li class="list-inline-item">
+													<a href="#" class="social-icon" style="background-color: #c32aa3;">
+													  <i class="fab fa-instagram" style="color: #fff;"></i>
+													</a>
+												  </li>
+												  <li class="list-inline-item"><a href="#" class="social-icon" style="background-color: #0e76a8;"><i class="fab fa-linkedin-in" style="color: #fff;"></i></a></li>
+												  <li class="list-inline-item">
+													<a href="#" class="social-icon" style="background-color: #25D366;">
+													  <i class="fab fa-whatsapp" style="color: #fff;"></i>
+													</a>
+												  </li>
+												  
 											</ul>
 										</div>
 									</div>
@@ -168,24 +182,25 @@
 							</div>
 							
 							<div class="col-lg-12">
-								<form class="contact-form bg-white rounded p-5" id="comment-form">
+								<form action="{{route('storeComment')}}" method="POST">
+									@csrf
 									<h4 class="mb-4">Write a comment</h4>
 									<div class="row">
 										<div class="col-md-6">
+											<div class="form-group" hidden>
+												<input class="form-control" type="text" name="article_id" value="{{$article->id}}">
+											</div>
 											<div class="form-group">
 												<input class="form-control" type="text" name="name" id="name" placeholder="Name:">
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<input class="form-control" type="text" name="mail" id="mail" placeholder="Email:">
+												<input class="form-control" type="email" name="email" id="mail" placeholder="Email:">
 											</div>
 										</div>
 									</div>
-									
-									
 									<textarea class="form-control mb-3" name="comment" id="comment" cols="30" rows="5" placeholder="Comment"></textarea>
-									
 									<input class="btn btn-main btn-round-full" type="submit" name="submit-contact" id="submit_contact" value="Submit Message">
 								</form>
 							</div>
@@ -241,14 +256,12 @@
 							<div class="sidebar-widget bg-white rounded tags p-4 mb-3">
 								<h5 class="mb-4">Tags</h5>
 								@foreach($tags as $tag)
-								<a href="#">{{$tag->tag_name}}</a>
+								<a href="{{ url('blogsByCategory/'.$tag->id) }}">{{$tag->tag_name }}</a> 
 								@endforeach
 							</div>
 						</div>
 					</div>   
 				</div>
 			</div>
-		</section>
-		
-		
+		</section>	
 	@endsection	

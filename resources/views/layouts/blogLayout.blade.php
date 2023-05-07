@@ -26,7 +26,10 @@
 	<link rel="stylesheet" href="{{ asset('set/css/style.css')}}">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
-	
+	{{-- message toastr --}}
+	<link rel="stylesheet" href="{{ URL::to('assets/css/toastr.min.css') }}">
+	<script src="{{ URL::to('assets/js/toastr_jquery.min.js') }}"></script>
+	<script src="{{ URL::to('assets/js/toastr.min.js') }}"></script>
 </head>
 
 <body>
@@ -91,8 +94,9 @@
 	</header>
 	
 	<!-- Header Close --> 
-
+		
     @yield('content')
+	{!! Toastr::message() !!}
 
     <!-- footer Start -->
 		<footer class="footer section">
@@ -127,10 +131,17 @@
 							<h4 class="text-capitalize mb-4">Subscribe Us</h4>
 							<p>Subscribe to get latest news article and resources  </p>
 							
-							<form action="#" class="sub-form">
-								<input type="text" class="form-control mb-3" placeholder="Subscribe Now ...">
-								<a href="#" class="btn btn-main btn-small">subscribe</a>
-							</form>
+							<form action="{{route('storeSubscriber')}}" class="sub-form" method="POST">
+								@csrf
+								<input type="email" name="email" class="form-control mb-3 @error('email') is-invalid @enderror" placeholder="Subscribe Now ...">
+								@error('email')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
+								<button type="submit" class="btn btn-main btn-small">Subscribe</button>
+								{{-- <a href="#" class="">subscribe</a> --}}
+							</form>                                           
 						</div>
 					</div>
 					

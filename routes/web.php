@@ -44,7 +44,8 @@ Route::controller(AmaniController::class)->group(function () {
     Route::get('singleBlog/{id}', 'singleBlog');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('blogsByCategory/{id}', 'blogsByCategory');
-
+    Route::post('/comment', 'storeComment')->name('storeComment');
+    Route::post('/subscriber', 'storeSubscriber')->name('storeSubscriber');
 });
 
 Route::group(['middleware'=>'auth'],function()
@@ -118,10 +119,9 @@ Route::controller(ArticleController::class)->group(function () {
     Route::get('articles/add', 'addBlog')->middleware('auth')->name('articles/addBlog');
     Route::post('article/save', 'articleSave')->name('article.save'); // save record student
     Route::get('article/edit/{id}', 'articleEdit'); // view for edit
+    Route::get('article/view/{id}', 'showArticle'); // view for edit
     Route::get('articles/tags', 'tags')->name('articles.tags');
     Route::post('tags/store', 'storeTag')->name('store.tag');
-    Route::post('student/delete', 'studentDelete')->name('student/delete'); // delete record student
-    Route::get('student/profile/{id}', 'studentProfile')->middleware('auth'); // profile student
-
+    Route::post('/delete', 'deleteArticle')->name('deleteArticle'); 
 });
 
