@@ -24,24 +24,23 @@
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="row">
-							@foreach($articles as $article)
-							<div class="col-lg-6 col-md-6 mb-5">
-								<div class="blog-item">
-									<img src="{{ Storage::url('blog_photos/'.$article->upload) }}" style="height: 225px; width: 348px;" alt="" class="img-fluid rounded">
-									
-									<div class="blog-item-content bg-white p-4">
-										<div class="blog-item-meta  py-1 px-2">
-											<span class="text-muted text-capitalize mr-3"><i class="ti-pencil-alt mr-2"></i>{{$article->tag_name}}</span>
-										</div> 
+	@foreach($articles as $article)
+								<div class="col-lg-6 col-md-6 mb-5">
+									<div class="blog-item">
+										<img src="{{ Storage::url('blog_photos/'.$article->upload) }}" style="height: 225px; width: 348px;" alt="" class="img-fluid rounded">
 										
-										<h3 class="mt-3 mb-3"><a href="{{ url('singleBlog/'.$article->id) }}">{{$article->title}}</a></h3>
-										<p class="mb-4">{!! Str::limit($article->excerpt, 110, '...') !!}</p>
-										
-										<a href="{{ url('singleBlog/'.$article->id) }}" class="btn btn-small btn-main btn-round-full">Read More</a>
+										<div class="blog-item-content bg-white p-4">
+											<div class="blog-item-meta  py-1 px-2">
+												<span class="text-muted text-capitalize mr-3"><i class="ti-pencil-alt mr-2"></i>{{$article->tag_name}}</span>
+											</div> 
+											<h3 class="mt-3 mb-3"><a href="{{ url('singleBlog/'.$article->id) }}">{{$article->title}}</a></h3>
+											<p class="mb-4">{!! Str::limit($article->excerpt, 110, '...') !!}</p>
+											
+											<a href="{{ url('singleBlog/'.$article->id) }}" class="btn btn-small btn-main btn-round-full">Read More</a>
+										</div>
 									</div>
 								</div>
-							</div>
-							@endforeach
+								@endforeach	
 						</div>
 					</div>
 					<div class="col-lg-4">
@@ -96,7 +95,7 @@
 								<h5 class="mb-4">Tags</h5>
 								
 								@foreach($tags as $tag)
-								<a href="#">{{$tag->tag_name}}</a>
+								<a href="{{ url('blogsByCategory/'.$tag->id) }}">{{$tag->tag_name}}</a>
 								@endforeach
 							</div>
 						</div>

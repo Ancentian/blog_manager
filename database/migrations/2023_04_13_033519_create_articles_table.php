@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('tag_id');
             $table->string('post_date')->nullable();
             $table->string('author')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
 
         });

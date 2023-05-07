@@ -9,7 +9,7 @@
                 <div class="page-header">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h3 class="page-title">Add Post</h3>
+                            <h3 class="page-title">Create Post</h3>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Introduction</label>
-                                        <textarea name="introduction" class="form-control @error('introduction') is-invalid @enderror" >{{ old('introduction') }}</textarea>
+                                        <textarea name="introduction" class="form-control @error('introduction') is-invalid @enderror" id="editor">{{ old('introduction') }}</textarea>
                                         <!-- <div id="editor" name="body"></div> -->
                                         @error('introduction')
                                                 <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                                 </div>
 
                                 <div class="form-group local-forms">
-                                            <label>Excerpt <span class="login-danger">*</span></label>
+                                            <label>Author's Take <span class="login-danger">*</span></label>
                                             <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt"  id="editor">{{ old('excerpt') }}</textarea>
                                             @error('excerpt')
                                                 <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Body</label>
-                                        <textarea name="body" class="form-control @error('body') is-invalid @enderror" id="summernote">{{ old('body') }}</textarea>
+                                        <textarea name="body" class="form-control @error('body') is-invalid @enderror">{{ old('body') }}</textarea>
                                         <!-- <div id="editor" name="body"></div> -->
                                         @error('body')
                                                 <span class="invalid-feedback" role="alert">

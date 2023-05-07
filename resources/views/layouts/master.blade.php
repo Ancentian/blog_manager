@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="{{ URL::to('assets/css/toastr.min.css') }}">
 	<script src="{{ URL::to('assets/js/toastr_jquery.min.js') }}"></script>
 	<script src="{{ URL::to('assets/js/toastr.min.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/mo89eypp32un4xv913qmkd1w6izdqdizxrb849ht6karrjkw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
     <div class="main-wrapper">
@@ -174,6 +175,8 @@
                 </li>
             </ul>
         </div>
+        {{-- Toastr --}}
+        {!! Toastr::message() !!}
 		{{-- side bar --}}
 		@include('sidebar.sidebar')
 		{{-- content page --}}
@@ -205,5 +208,12 @@
     <script src="{{ URL::to('assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ URL::to('assets/js/script.js') }}"></script>
     @yield('script')
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+      </script>
 </body>
 </html>
