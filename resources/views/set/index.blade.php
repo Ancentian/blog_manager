@@ -2,103 +2,103 @@
 @section('content')
 
 <div class="main-wrapper ">
-<!-- Slider Start -->
-{{-- <section class="slider">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-9 col-md-10">
-				<div class="block">
-					<span class="d-block mb-3 text-white text-capitalize">Prepare for new future</span>
-					<h1 class="animated fadeInUp mb-5">Our work is <br>presentation of our <br>capabilities.</h1>
-					<a href="#" target="_blank" class="btn btn-main animated fadeInUp btn-round-full" >Get started<i class="btn-icon fa fa-angle-right ml-2"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-&nbsp; --}}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators">
-	  <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-	  <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-	  <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-	</ol>
-	<div class="carousel-inner">
-	  <div class="carousel-item active">
-		<img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="...">
-		<div class="carousel-caption d-none d-md-block">
-		  <h5>First slide label</h5>
-		  <p>Some representative placeholder content for the first slide.</p>
-		</div>
-	  </div>
-	  <div class="carousel-item">
-		<img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="...">
-		<div class="carousel-caption d-none d-md-block">
-		  <h5>Second slide label</h5>
-		  <p>Some representative placeholder content for the second slide.</p>
-		</div>
-	  </div>
-	  <div class="carousel-item">
-		<img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="...">
-		<div class="carousel-caption d-none d-md-block">
-		  <h5>Third slide label</h5>
-		  <p>Some representative placeholder content for the third slide.</p>
-		</div>
-	  </div>
-	</div>
-	<button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
-	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	  <span class="sr-only">Previous</span>
-	</button>
-	<button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
-	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-	  <span class="sr-only">Next</span>
-	</button>
-</div>
-&nbsp;
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url({{asset('set/assets/img/slide/fitlady.jpeg')}});">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown"><span>Welcome to</span> My Blog</h2>
+                <p class="animate__animated animate__fadeInUp">Unleash Your Inner Beast! Join our fitness revolution and sculpt the body of your dreams. Dive into our invigorating fitness section for some workout tips and exhilarating workouts. Get ready to break a sweat and unlock your full potential. Click here to ignite your fitness journey now!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url({{asset('set/assets/img/slide/apple.jpeg')}});">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Unlock Optimal Health! </h2>
+                <p class="animate__animated animate__fadeInUp">"Discover our health section's treasure trove of invaluable insights and practical advice. Explore a world of wellness where vibrant living and longevity await. From nutrition tips to holistic approaches, we've got you covered. Click here to take charge of your well-being today and embark on a journey towards a healthier, happier you.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url({{ asset('set/assets/img/slide/mind.jpeg') }});">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Nurture Your Soul!</h2>
+                <p class="animate__animated animate__fadeInUp">"Elevate Your Mind, Nurture Your Soul! Step into our sanctuary of mental wellness, where tranquility and self-discovery intertwine. Uncover the secrets to cultivating inner peace, reducing stress, and embracing mindfulness. Click here to begin your transformative journey today and embark on a path towards balance and serenity.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
 <!-- Section Intro Start -->
 
-<section class="section intro" hidden>
-	<div class="container">
-		<div class="row ">
-			<div class="col-lg-8">
-				<div class="section-title">
-					<span class="h6 text-color ">We are creative & expert people</span>
-					<h2 class="mt-3 content-title">We work with business & provide solution to client with their business problem </h2>
-				</div>
-			</div>
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+	<div class="container-fluid">
+
+	  <div class="row">
+
+		<div class="col-lg-5 align-items-stretch video-box" style='background-image: url("{{asset('set/assets/img/about.jpg')}}");'>
+		  <a href="#" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
 		</div>
-		<div class="row justify-content-center">
-			<div class="col-lg-4 col-md-6 col-12">
-				<div class="intro-item mb-5 mb-lg-0"> 
-					<i class="ti-desktop color-one"></i>
-					<h4 class="mt-4 mb-3">Modern & Responsive design</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="intro-item mb-5 mb-lg-0">
-					<i class="ti-medall color-one"></i> 
-					<h4 class="mt-4 mb-3">Awarded licensed company</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="intro-item">
-					<i class="ti-layers-alt color-one"></i>
-					<h4 class="mt-4 mb-3">Build your website Professionally</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-				</div>
-			</div> 
+
+		<div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+		  <div class="content">
+			<h3>HELLO & WELCOME TO MY BLOG. <strong>velit pariatur architecto aut nihil</strong></h3>
+			<p>Welcome to my blog! I'm thrilled to have you here and can't wait to share my passion for health, fitness, and wellness with you.
+I've always been fascinated by the world of health and fitness. But nothing seemed to work despite doing all I could to achieve my health, wellness and fitness goals. However, when I realized I was doing everything wrong, I truly started to see results. With the help of my trainers and health experts, I discovered the right balance of physical exercise, mental well-being, and proper nutrition that works for me.
+And now, I'm excited to share everything I've learned with you. Whether you're struggling to lose weight, looking to enhance your fitness routine, or simply seeking a healthier lifestyle, my blog is here to help.
+With practical tips, expert advice, and my personal experiences, I’m confident we can work together to achieve your health and wellness goals. So join me on this journey of discovery, and let's get started!
+Head over to my BLOG SECTION to find out more, and feel free to leave your comments and feedback. Together, let's make health, fitness, and wellness a part of our daily lives!"</p>
+			{{-- <p class="fst-italic">
+			  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+			  magna aliqua.
+			</p>
+			<ul>
+			  <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+			  <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+			  <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+			</ul> --}}
+			
+		  </div>
+
 		</div>
+
+	  </div>
+
 	</div>
-</section>
+  </section><!-- End About Section -->
+
 
 <!-- Section Intro END -->
 <!-- Section About Start -->
 
-<section class="section about position-relative">
+<section class="section about position-relative" hidden>
 	<div class="bg-about"></div>
 	<div class="container">
 		<div class="row">
@@ -214,92 +214,8 @@
 		</div>
 	</div>
 </section>
-&nbsp;
+
 <!--  Section Services End -->
- <!-- Section Cta Start --> 
-<section class="section cta">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-5">
-				<div class="cta-item  bg-white p-5 rounded">
-					<span class="h6 text-color">We create for you</span>
-					<h2 class="mt-2 mb-4">Entrust Your Project to Our Best Team of Professionals</h2>
-					<p class="lead mb-4">Have any project on mind? For immidiate support :</p>
-					<h3><i class="ti-mobile mr-3 text-color"></i>+23 876 65 455</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!--  Section Cta End-->
-<!-- Section Testimonial Start -->
-<section class="section testimonial" hidden>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 ">
-				<div class="section-title">
-					<span class="h6 text-color">Clients testimonial</span>
-					<h2 class="mt-3 content-title">Check what's our clients say about us</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container" hidden>
-		<div class="row testimonial-wrap">
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae numquam corrupti facilis blanditiis.</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">Thomas Johnson</h5>
-						<p>Excutive Director,themefisher</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">Consectetur adipisicing elit. Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae .</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">Mickel hussy</h5>
-						<p>Excutive Director,themefisher</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae numquam corrupti.</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">James Watson</h5>
-						<p>Excutive Director,themefisher</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">Consectetur adipisicing elit. Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae .</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">Mickel hussy</h5>
-						<p>Excutive Director,themefisher</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-&nbsp;
-<!-- Section Testimonial End -->
 <section class="section latest-blog bg-2" >
 	<div class="container">
 		<div class="row justify-content-center">
@@ -326,7 +242,7 @@
 
 						<h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white ">{{$article->title}}</a></h3>
 
-						<a href="blog-single.html" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
+						<a href="{{ url('singleBlog/'.$article->id) }}" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
 					</div>
 				</div>
 			</div>
@@ -334,23 +250,99 @@
 		</div>
 	</div>
 </section>
-
-<section class="mt-70 position-relative">
-	<div class="container">
-	<div class="cta-block-2 bg-gray p-5 rounded border-1">
-		<div class="row justify-content-center align-items-center ">
-			<div class="col-lg-7">
-				<span class="text-color">For Every type business</span>
-				<h2 class="mt-2 mb-4 mb-lg-0">Entrust Your Project to Our Best Team of Professionals</h2>
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+		<div class="container position-relative">
+  
+		  <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+			<div class="swiper-wrapper">
+  
+			  <div class="swiper-slide">
+				<div class="testimonial-item">
+				  <img src="{{asset('set/assets/img/user.jpg')}}" class="testimonial-img" alt="">
+				  <h3>Saul Goodman</h3>
+				  <h4>Ceo &amp; Founder</h4>
+				  <div class="stars">
+					<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+				  </div>
+				  <p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+					Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+					<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				  </p>
+				</div>
+			  </div><!-- End testimonial item -->
+  
+			  <div class="swiper-slide">
+				<div class="testimonial-item">
+				  <img src="{{asset('set/assets/img/user.jpg')}}" class="testimonial-img" alt="">
+				  <h3>Sara Wilsson</h3>
+				  <h4>Designer</h4>
+				  <div class="stars">
+					<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+				  </div>
+				  <p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+					Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+					<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				  </p>
+				</div>
+			  </div><!-- End testimonial item -->
+  
+			  <div class="swiper-slide">
+				<div class="testimonial-item">
+				  <img src="{{asset('set/assets/img/user.jpg')}}" class="testimonial-img" alt="">
+				  <h3>Jena Karlis</h3>
+				  <h4>Store Owner</h4>
+				  <div class="stars">
+					<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+				  </div>
+				  <p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+					Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+					<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				  </p>
+				</div>
+			  </div><!-- End testimonial item -->
+  
+			  <div class="swiper-slide">
+				<div class="testimonial-item">
+				  <img src="{{asset('set/assets/img/user.jpg')}}" class="testimonial-img" alt="">
+				  <h3>Matt Brandon</h3>
+				  <h4>Freelancer</h4>
+				  <div class="stars">
+					<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+				  </div>
+				  <p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+					Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+					<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				  </p>
+				</div>
+			  </div><!-- End testimonial item -->
+  
+			  <div class="swiper-slide">
+				<div class="testimonial-item">
+				  <img src="{{asset('set/assets/img/user.jpg')}}" class="testimonial-img" alt="">
+				  <h3>John Larson</h3>
+				  <h4>Entrepreneur</h4>
+				  <div class="stars">
+					<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+				  </div>
+				  <p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+					Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+					<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				  </p>
+				</div>
+			  </div><!-- End testimonial item -->
+  
 			</div>
-			<div class="col-lg-4">
-				<a href="contact.html" class="btn btn-main btn-round-full float-lg-right ">Contact Us</a>
-			</div>
+			<div class="swiper-pagination"></div>
+		  </div>
+  
 		</div>
-	</div>
-</div>
-
-</section>
-&nbsp;
+	  </section>
+	  <!-- End Testimonials Section -->
 
 @endsection

@@ -16,6 +16,7 @@ class Article extends Model
         'upload',
         'tag_id',
         'post_date',
-        'author'
+        'author',
+        'status'
     ];
 }

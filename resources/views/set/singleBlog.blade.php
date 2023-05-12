@@ -107,15 +107,12 @@
 													<a href="#" class="social-icon" style="background-color: #25D366;">
 													  <i class="fab fa-whatsapp" style="color: #fff;"></i>
 													</a>
-												  </li>
-												  
+												  </li>	  
 											</ul>
 										</div>
 									</div>
 								</div>
-							</div>
-							
-							
+							</div>							
 							<div class="col-lg-12 mb-5" hidden>
 								<div class="posts-nav bg-white p-5 d-lg-flex d-md-flex justify-content-between ">
 									<a class="post-prev align-items-center" href="#">
@@ -142,41 +139,28 @@
 								<div class="comment-area card border-0 p-5">
 									<h4 class="mb-4">2 Comments</h4>
 									<ul class="comment-tree list-unstyled">
+										@foreach($comments as $comment)
+										@if ($comment->status == 1)
 										<li class="mb-5">
 											<div class="comment-area-box">
-												<img alt="" src="{{asset('set/images/blog/test1.jpg')}}"  class="img-fluid float-left mr-3 mt-2">
-												
-												<h5 class="mb-1">Philip W</h5>
-												<span>United Kingdom</span>
-												
-												<div class="comment-meta mt-4 mt-lg-0 mt-md-0 float-lg-right float-md-right">
-													<a href="#"><i class="icofont-reply mr-2 text-muted"></i>Reply |</a>
-													<span class="date-comm">Posted October 7, 2018 </span>
-												</div>
-												
-												<div class="comment-content mt-3">
-													<p>Some consultants are employed indirectly by the client via a consultancy staffing company, a company that provides consultants on an agency basis. </p>
-												</div>
-											</div>
-										</li>
-										
-										<li>
-											<div class="comment-area-box">
-												<img alt="" src="{{asset('set/images/blog/test2.jpg')}}" class="mt-2 img-fluid float-left mr-3">
-												
-												<h5 class="mb-1">Philip W</h5>
-												<span>United Kingdom</span>
+												<img alt="" src="{{asset('set/images/blog/user.jpg')}}" style="height: 40px; width: 40px; border-radius: 50%;" class="img-fluid float-left mr-3 mt-2">												
+												<h5 class="mb-1">{{$comment->name}}</h5>
+												<span>Nairobi, Kenya</span>
 												
 												<div class="comment-meta mt-4 mt-lg-0 mt-md-0 float-lg-right float-md-right">
 													<a href="#"><i class="icofont-reply mr-2 text-muted"></i>Reply |</a>
-													<span class="date-comm">Posted October 7, 2018</span>
+													<span class="date-comm">Posted {{$comment->created_at}} </span>
 												</div>
 												
 												<div class="comment-content mt-3">
-													<p>Some consultants are employed indirectly by the client via a consultancy staffing company, a company that provides consultants on an agency basis. </p>
+													<p>{{$comment->comment}} </p>
 												</div>
 											</div>
-										</li>
+										</li>		
+										@else
+											
+										@endif
+										@endforeach
 									</ul>
 								</div>
 							</div>

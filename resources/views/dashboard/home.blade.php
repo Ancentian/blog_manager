@@ -1,8 +1,5 @@
-
 @extends('layouts.master')
 @section('content')
-{{-- message --}}
-{!! Toastr::message() !!}
 <div class="page-wrapper">
     <div class="content container-fluid">
         <div class="page-header">

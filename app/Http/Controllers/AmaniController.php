@@ -54,9 +54,14 @@ class AmaniController extends Controller
             ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
             ->select('articles.*', 'tags.tag_name')
             ->get()->first();
+        $comments = DB::table('comments')
+            ->where('comments.article_id', '=', $id)
+            ->leftJoin('articles', 'articles.id', '=', 'comments.article_id')
+            ->select('comments.*')
+            ->get();
         $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(10)->get();
         $articles = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
-        return view('set.singleBlog', compact('article', 'articles', 'tags'));
+        return view('set.singleBlog', compact('article', 'articles', 'tags', 'comments'));
     }
 
     public function contact()
@@ -73,7 +78,6 @@ class AmaniController extends Controller
                 ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
                 ->select('articles.*', 'tags.id', 'tags.tag_name')
                 ->get();
-
         if ($articles->count() == 0) {
             Toastr::error("No Content Available", 'Error');
             return redirect()->back();

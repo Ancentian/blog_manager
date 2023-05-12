@@ -14,8 +14,6 @@
                 </div>
             </div>
         </div>
-        {{-- message --}}
-        {!! Toastr::message() !!}
         <div class="row">
             <div class="col-sm-12">
                 <div class="card card-table">
@@ -38,7 +36,7 @@
                         class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                         <thead class="student-thread">
                             <tr>
-                                <th></th>
+                                <th>*</th>
                                 <th>Tag</th>
                                 <th>Articles</th>
                                 <th class="text-end">Action</th>
@@ -47,8 +45,8 @@
                         <tbody>
                             @foreach ($tags as $key=>$list )
                             <tr>
+                                <td>{{++$key}}</td>
                                 <td class="user_id">{{ $list->user_id }}</td>
-
                                 <td>{{ $list->tag_name }}</td>
                                 <td>{{ $list->email }}</td>
                                 <td class="text-end">

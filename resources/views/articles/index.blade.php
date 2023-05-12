@@ -52,7 +52,11 @@
                                <a href="#" class="text-danger article_delete" data-bs-toggle="modal" data-bs-target="#deleteArticle"><i class="feather-trash-2 me-1"></i> Delete</a>
                            </div>
                            <div class="text-end inactive-style">
-                            <a href="javascript:void(0);" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteNotConfirmModal"><i class="feather-eye-off me-1"></i> Inactive</a>
+                            @if($key->status == 1)
+                            <a href="{{url('deactivate/status', $key->id)}}" class="text-success"><i class="feather-eye me-1"></i> Active</a>                  
+                            @elseif($key->status == 0)
+                            <a href="{{url('update/status', $key->id)}}" class="text-danger"><i class="feather-eye-off me-1"></i> Inactive</a>   
+                            @endif
                         </div>
                     </div>
                 </div>
