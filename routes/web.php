@@ -122,6 +122,10 @@ Route::controller(ArticleController::class)->group(function () {
     Route::get('article/view/{id}', 'showArticle'); // view for edit
     Route::get('articles/tags', 'tags')->name('articles.tags');
     Route::post('tags/store', 'storeTag')->name('store.tag');
+    Route::get('update/status/{id}', 'updateArticleStatus');//Update Status
+    Route::get('deactivate/status/{id}', 'deactivateArticleStatus');//Update Status
     Route::post('/delete', 'deleteArticle')->name('deleteArticle'); 
+    //Comments
+    Route::get('publish/comment/{id}', 'publishComment');//Update Status
 });
 

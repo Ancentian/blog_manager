@@ -21,6 +21,15 @@
 	<!-- Owl Carousel CSS -->
 	<link rel="stylesheet" href="{{ asset('set/plugins/slick-carousel/slick/slick.css')}}">
 	<link rel="stylesheet" href="{{ asset('set/plugins/slick-carousel/slick/slick-theme.css')}}">
+
+	{{-- Sliders --}}
+	<link href="{{asset('set/assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('set/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+    <link href="{{asset('set/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('set/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('set/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+	<!-- Template Main CSS File -->
+	<link href="{{asset('set/assets/css/style.css')}}" rel="stylesheet">
 	
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href="{{ asset('set/css/style.css')}}">
@@ -30,70 +39,79 @@
 	<link rel="stylesheet" href="{{ URL::to('assets/css/toastr.min.css') }}">
 	<script src="{{ URL::to('assets/js/toastr_jquery.min.js') }}"></script>
 	<script src="{{ URL::to('assets/js/toastr.min.js') }}"></script>
+	<style>
+		<style>
+    .social-icons i {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .social-icons i.bi-facebook {
+        color: #1877f2;
+    }
+    
+    .social-icons i.bi-twitter {
+        color: #1da1f2;
+    }
+    
+    .social-icons i.bi-instagram {
+        color: #c13584;
+    }
+</style>
+	</style>
 </head>
 
 <body>
 	
 	<!-- Header Start --> 
 	
-	<header class="navigation">
-		<div class="header-top ">
-			<div class="container">
-				<div class="row justify-content-between align-items-center">
-					<div class="col-lg-2 col-md-4">
-						<div class="header-top-socials text-center text-lg-left text-md-left">
-							<a href="#" target="_blank"><i class="ti-facebook"></i></a>
-							<a href="#" target="_blank"><i class="ti-twitter"></i></a>
-							<a href="#" target="_blank"><i class="ti-github"></i></a>
-						</div>
-					</div>
-					<div class="col-lg-10 col-md-8 text-center text-lg-right text-md-right">
-						<div class="header-top-info">
-							<a href="tel:+23-345-67890">Call Us : <span>+254-345-67890</span></a>
-							<a href="mailto:support@gmail.com" ><i class="fa fa-envelope mr-2"></i><span>support@gmail.com</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<nav class="navbar navbar-expand-lg  py-4" id="navbar">
-			<div class="container">
-				<a class="navbar-brand" href="#">
-					Amani<span>kit.</span>
-				</a>
-				
-				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="fa fa-bars"></span>
-				</button>
-				
-				<div class="collapse navbar-collapse text-center" id="navbarsExample09">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="{{route('blogIndex')}}">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item dropdown" hidden>
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-								<li><a class="dropdown-item" href="about.html">Our company</a></li>
-								<li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown05">
-								<li><a class="dropdown-item" href="{{route('blogs')}}">Blogs</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
-					</ul>
-					
-				</div>
-			</div>
-		</nav>
-	</header>
+
 	
 	<!-- Header Close --> 
+	<!-- ======= Top Bar ======= -->
+	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+		  <a href="tel:+254 758 955 488"><i class="bi bi-phone d-flex align-items-center"><span>+254 758 955 488</span></i></a>&nbsp; &nbsp;&nbsp;&nbsp;
+			<!-- Facebook icon -->
+			<i class="bi bi-facebook d-flex align-items-center"><span class="visually-hidden">Facebook</span></i>&nbsp;	&nbsp;	
+			<!-- Twitter icon -->
+			<i class="bi bi-twitter d-flex align-items-center"><span class="visually-hidden">Twitter</span></i>&nbsp; &nbsp;
+			<!-- Instagram icon -->
+			<i class="bi bi-instagram d-flex align-items-center"><span class="visually-hidden">Instagram</span></i>&nbsp; &nbsp;
+			<!-- LinkedIn icon -->
+			<i class="bi bi-linkedin d-flex align-items-center"><span class="visually-hidden">LinkedIn</span></i>&nbsp; &nbsp;
+
+			<!-- WhatsApp icon -->
+			<i class="bi bi-whatsapp d-flex align-items-center"><span class="visually-hidden">WhatsApp</span></i>&nbsp; &nbsp;
+
+		</div>
+	  </section>
+	  <!-- ======= Header ======= -->
+	  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+	
+		  <div class="logo me-auto">
+			<h1><a href="{{route('blogIndex')}}">Amani</a></h1>
+			<!-- Uncomment below if you prefer to use an image logo -->
+			<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+		  </div>
+	
+		  <nav id="navbar" class="navbar order-last order-lg-0">
+			<ul>
+			  <li><a class="nav-link scrollto active" href="{{route('blogIndex')}}">Home</a></li>
+			  <li><a class="nav-link scrollto" href="#about">Portfolio</a></li>
+			  <li class="dropdown"><a href="#"><span>Blogs</span> <i class="bi bi-chevron-down"></i></a>
+				<ul>
+				  <li><a href="{{route('blogs')}}">Blogs</a></li>
+				</ul>
+			  </li>
+			  <li><a class="nav-link scrollto" href="{{route('contact')}}">Contact</a></li>
+			</ul>
+			<i class="bi bi-list mobile-nav-toggle"></i>
+		  </nav><!-- .navbar -->
+	
+		</div>
+	  </header><!-- End Header -->
 		
     @yield('content')
 	{!! Toastr::message() !!}
@@ -180,6 +198,7 @@
 				</div>
 			</div>
 		</footer>
+		<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 		
 	</div>
 	
@@ -202,9 +221,11 @@
 		<script src="{{ asset('set/plugins/counterup/jquery.waypoints.min.js')}}"></script>
 		<script src="{{ asset('set/plugins/counterup/jquery.counterup.min.js')}}"></script>
 		
-		<!-- Google Map -->
-		<script src="{{ asset('set/plugins/google-map/map.js')}}"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>    
+		<!-- Template Main JS File -->
+		<script src="{{asset('set/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+		<script src="{{asset('set/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+		<script src="{{asset('set/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+		<script src="{{asset('set/assets/js/main.js')}}"></script>
 		
 		<script src="{{ asset('set/js/script.js')}}"></script><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

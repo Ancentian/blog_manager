@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\Article;
 use App\Models\Tag;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -94,17 +95,77 @@ class ArticleController extends Controller
 
     public function showArticle($id)
     {
-        return view('articles.view');
+        $article = DB::table('articles')
+            ->where('articles.id', '=', $id)
+            ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
+            ->select('articles.*', 'tags.tag_name')
+            ->get()->first();
+        $comments = DB::table('comments')
+            ->where('comments.article_id', '=', $id)
+            ->leftJoin('articles', 'articles.id', '=', 'comments.article_id')
+            ->select('comments.*')
+            ->get();
+        return view('articles.view', compact('article','comments'));
     }
 
-    public function edit($id)
+    public function updateArticleStatus(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try {           
+            $updateRecord = [
+                'status' => 1,
+            ];
+            Article::where('id', $id)->update($updateRecord);
+            
+            Toastr::success('Has been Activated successfully','Success');
+            DB::commit();
+            return redirect()->back();
+           
+        } catch(\Exception $e) {
+            DB::rollback();
+            Toastr::error('fail, update student  :)','Error');
+            return redirect()->back();
+        }
     }
 
-    public function update(Request $request, $id)
+    public function deactivateArticleStatus(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try {           
+            $updateRecord = [
+                'status' => 0,
+            ];
+            Article::where('id', $id)->update($updateRecord);
+            
+            Toastr::success('Has been Deactivated successfully','Success');
+            DB::commit();
+            return redirect()->back();
+           
+        } catch(\Exception $e) {
+            DB::rollback();
+            Toastr::error('fail, update student  :)','Error');
+            return redirect()->back();
+        }
+    }
+
+    public function publishComment(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try {           
+            $updateRecord = [
+                'status' => 1,
+            ];
+            Comment::where('id', $id)->update($updateRecord);
+            
+            Toastr::success('Comment Published Successfully','Success');
+            DB::commit();
+            return redirect()->back();
+           
+        } catch(\Exception $e) {
+            DB::rollback();
+            Toastr::error('fail, update student  :)','Error');
+            return redirect()->back();
+        }
     }
 
     public function deleteArticle(Request $request)
