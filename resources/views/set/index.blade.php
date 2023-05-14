@@ -15,8 +15,8 @@
           <div class="carousel-item active" style="background-image: url({{asset('set/assets/img/slide/fitlady.jpeg')}});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown"><span>Welcome to</span> My Blog</h2>
-                <p class="animate__animated animate__fadeInUp">Unleash Your Inner Beast! Join our fitness revolution and sculpt the body of your dreams. Dive into our invigorating fitness section for some workout tips and exhilarating workouts. Get ready to break a sweat and unlock your full potential. Click here to ignite your fitness journey now!</p>
+                <h2 class="animate__animated animate__fadeInDown"><span>Unlock Your</span> Full Power</h2>
+                <p class="animate__animated animate__fadeInUp">Embrace Your Inner Strength! Join our fitness revolution and sculpt the body of your dreams. Dive into our invigorating fitness section for some workout tips and exhilarating workouts. Get ready to break a sweat and unlock your full potential. Click here to ignite your fitness journey now!</p>
               </div>
             </div>
           </div>
@@ -63,18 +63,20 @@
 	  <div class="row">
 
 		<div class="col-lg-5 align-items-stretch video-box" style='background-image: url("{{asset('set/assets/img/about.jpg')}}");'>
-		  <a href="#" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+		  {{-- <a href="#" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a> --}}
 		</div>
 
 		<div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
 
 		  <div class="content">
-			<h3>HELLO & WELCOME TO MY BLOG. <strong>velit pariatur architecto aut nihil</strong></h3>
-			<p>Welcome to my blog! I'm thrilled to have you here and can't wait to share my passion for health, fitness, and wellness with you.
-I've always been fascinated by the world of health and fitness. But nothing seemed to work despite doing all I could to achieve my health, wellness and fitness goals. However, when I realized I was doing everything wrong, I truly started to see results. With the help of my trainers and health experts, I discovered the right balance of physical exercise, mental well-being, and proper nutrition that works for me.
+			<h3><strong>HELLO & WELCOME TO MY BLOG.</strong></h3>
+			<p>I'm thrilled to have you here and can't wait to share my passion for health, fitness, and wellness with you.
+I've always been fascinated by the world of health and fitness. But nothing seemed to work despite doing all I could to achieve my health, wellness and fitness goals. However, when I realized I was doing everything wrong, I truly started to see results.</p>
+<p>With the help of my trainers and health experts, I discovered the right balance of physical exercise, mental well-being, and proper nutrition that works for me.
 And now, I'm excited to share everything I've learned with you. Whether you're struggling to lose weight, looking to enhance your fitness routine, or simply seeking a healthier lifestyle, my blog is here to help.
-With practical tips, expert advice, and my personal experiences, I’m confident we can work together to achieve your health and wellness goals. So join me on this journey of discovery, and let's get started!
-Head over to my BLOG SECTION to find out more, and feel free to leave your comments and feedback. Together, let's make health, fitness, and wellness a part of our daily lives!"</p>
+With practical tips, expert advice, and my personal experiences, I’m confident we can work together to achieve your health and wellness goals.</p>
+<p>So join me on this journey of discovery, and let's get started!
+Head over to <a href="{{route('blogs')}}"><b>my Blog Section</b></a> to find out more, and feel free to leave your comments and feedback. Together, let's make health, fitness, and wellness a part of our daily lives!"</p>
 			{{-- <p class="fst-italic">
 			  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
 			  magna aliqua.
@@ -119,110 +121,13 @@ Head over to my BLOG SECTION to find out more, and feel free to leave your comme
 </section>
 &nbsp;
 <!-- Section About End -->
-<!-- section Counter Start -->
-<section class="section counter" hidden>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">1730</span> +</h3>
-					<p class="text-muted">Project Done</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">125 </span>M </h3>
-					<p class="text-muted">User Worldwide</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">39</span></h3>
-					<p class="text-muted">Availble Country</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">14</span></h3>
-					<p class="text-muted">Award Winner </p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- section Counter End  -->
-<!--  Section Services Start -->
-<section class="section service border-top" hidden>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<div class="section-title">
-					<span class="h6 text-color">Our Services</span>
-					<h2 class="mt-3 content-title ">We provide a wide range of creative services </h2>
-				</div>
-			</div>
-		</div>
-
-		<div class="row justify-content-center">
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-5">
-					<i class="ti-desktop"></i>
-					<h4 class="mb-3">Web development.</h4>
-					<p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-5">
-					<i class="ti-layers"></i>
-					<h4 class="mb-3">Interface Design.</h4>
-					<p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-5">
-					<i class="ti-bar-chart"></i>
-					<h4 class="mb-3">Business Consulting.</h4>
-					<p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-5 mb-lg-0">
-					<i class="ti-vector"></i>
-					<h4 class="mb-3">Branding.</h4>
-					<p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-5 mb-lg-0">
-					<i class="ti-android"></i>
-					<h4 class="mb-3">App development.</h4>
-					<p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-5 mb-lg-0">
-					<i class="ti-pencil-alt"></i>
-					<h4 class="mb-3">Content creation.</h4>
-					<p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!--  Section Services End -->
 <section class="section latest-blog bg-2" >
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="section-title">
 					<span class="h6 text-color">Latest News</span>
-					<h2 class="mt-3 content-title text-white">Latest articles to enrich knowledge</h2>
+					<h2 class="mt-3 content-title text-white">Latest Articles</h2>
 				</div>
 			</div>
 		</div>

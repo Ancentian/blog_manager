@@ -121,9 +121,15 @@
                                                     <a class="comment-btn" href="#">
                                                         <i class="fa fa-reply me-2"></i> Reply
                                                     </a>
+                                                    @if($key->status == 1)
+                                                    <a class="comment-btn" href="{{url('publish/comment', $key->id)}}">
+                                                        <i class="fa fa-reply me-2"></i>Published
+                                                    </a>
+                                                    @elseif($key->status == 0)
                                                     <a class="comment-btn" href="{{url('publish/comment', $key->id)}}">
                                                         <i class="fa fa-reply me-2"></i> Publish
                                                     </a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </li> 
