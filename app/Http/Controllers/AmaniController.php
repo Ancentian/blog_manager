@@ -8,21 +8,23 @@ use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Subscriber;
 use Carbon\Carbon;
+use App\Mail\Subscribe;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str; 
+use Illuminate\Support\Facades\Mail;
 use Brian2694\Toastr\Facades\Toastr;
 
 class AmaniController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $articles = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
+        $articles = Article::leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
+            ->select('articles.*', 'tags.id', 'tags.tag_name')
+            ->orderBy('articles.created_at', 'desc')
+            ->limit(3)
+            ->get();
         $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(3)->get();
         $blogs = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
         return view('set.index', compact('articles', 'tags', 'blogs'));
@@ -36,11 +38,6 @@ class AmaniController extends Controller
         return view('set.blogs', compact('articles', 'tags', 'blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function blogDetails()
     {
         return view('blogs.blog-details');
@@ -48,7 +45,6 @@ class AmaniController extends Controller
 
     public function singleBlog($id)
     {
-        //$article = Article::where('id',$id)->first();
         $article = DB::table('articles')
             ->where('articles.id', '=', $id)
             ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
@@ -118,7 +114,8 @@ class AmaniController extends Controller
 {
     $request->validate([
         'email' => 'required|string|unique:subscribers,email',
-    ], [
+    ], 
+    [
         'email.unique' => 'This email is already Taken.',
     ]);
 
@@ -127,7 +124,13 @@ class AmaniController extends Controller
     try {
         $subscriber = new Subscriber;
         $subscriber->email = $request->email;
+
+        //Send Mail
+        $email = $subscriber->email;
         $subscriber->save();
+        Mail::to($email)->send(new Subscribe($email));
+        //End Send Mail
+        
         DB::commit();
         Toastr::success("You've Subscribed Successfully", 'Success');
         return redirect()->back();

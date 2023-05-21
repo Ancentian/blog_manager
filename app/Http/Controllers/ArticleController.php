@@ -6,8 +6,11 @@ use DB;
 use App\Models\Article;
 use App\Models\Tag;
 use App\Models\Comment;
+use App\Models\Subscriber;
+use App\Mail\AllSubscribers;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends Controller
 {
@@ -32,42 +35,59 @@ class ArticleController extends Controller
     public function articleSave(Request $request)
     {
         $request->validate([
-            'title'    => 'required|string',
-            'introduction'    => '',
-            'excerpt'     => 'required|string',
-            'body'        => 'required',
-            'upload'        => 'required|image',
-            'tag_id'      => 'required',
+            'title' => 'required|string',
+            'introduction' => '',
+            'excerpt' => 'required|string',
+            'body' => 'required',
+            'upload' => 'required|image',
+            'tag_id' => 'required',
             'post_date' => 'required',
-            'author'          => 'required|string', 
+            'author' => 'required|string',
         ]);
+
         DB::beginTransaction();
+
         try {
-           
             $upload_file = rand() . '.' . $request->upload->extension();
             $request->upload->move(storage_path('app/public/blog_photos/'), $upload_file);
-            if(!empty($request->upload)) {
+
+            if (!empty($request->upload)) {
                 $article = new Article;
-                $article->title   = $request->title;
+                $article->title = $request->title;
                 $article->introduction = $request->introduction;
-                $article->excerpt    = $request->excerpt;
-                $article->body       = $request->body;
+                $article->excerpt = $request->excerpt;
+                $article->body = $request->body;
                 $article->upload = $upload_file;
                 $article->tag_id = $request->tag_id;
                 $article->post_date = $request->post_date;
-                $article->author         = $request->author;
+                $article->author = $request->author;
+
+                // Save the article
                 $article->save();
-                Toastr::success('Article added Successfully','Success');
+
+                // Retrieve all subscribers
+                $subscribers = Subscriber::all();
+                // Initialize an array to store the email addresses
+                $emails = [];
+                // Extract email addresses from subscribers and add them to the array
+                foreach ($subscribers as $subscriber) {
+                    $emails[] = $subscriber->email;
+                }
+                // Send email to all subscribers
+                Mail::to($emails)->send(new AllSubscribers($emails, $article));
+
                 DB::commit();
+                Toastr::success('Article added Successfully', 'Success');
             }
+
             return redirect()->route('articles/list');
-           
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollback();
-            Toastr::error('Failed, Try Again!','Error');
+            Toastr::error('Failed, Try Again!', 'Error');
             return redirect()->back();
         }
     }
+
 
     public function storeTag(Request $request)
     {

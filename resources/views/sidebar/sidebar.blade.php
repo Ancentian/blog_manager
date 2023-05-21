@@ -2,10 +2,7 @@
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
-                <li class="menu-title">
-                    <span>Main Menu</span>
-                </li>
-                <li class="{{set_active(['setting/page'])}}">
+                <li class="{{set_active(['setting/page'])}}" hidden>
                     <a href="{{ route('setting/page') }}">
                         <i class="fas fa-cog"></i> 
                         <span>Settings</span>
@@ -40,6 +37,15 @@
                         <li><a href="{{ route('articles/list') }}"  class="{{set_active(['articles/list'])}}">Blogs List</a></li>
                         <li><a href="{{ route('articles/addBlog') }}" class="{{set_active(['articles/addBlog'])}}">Create Blog</a></li>
                         <li><a href="{{ route('articles.tags') }}" class="{{set_active(['articles.tags'])}}">Category</a></li>
+                    </ul>
+                </li>
+                <li class="submenu {{set_active(['subscribers/list'])}} {{ (request()->is('student/edit/*')) ? 'active' : '' }}">
+                    <a href="#"><i class="fas fa-graduation-cap"></i>
+                        <span> Subscribers</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <li><a href="{{ route('subscribers/list') }}"  class="{{set_active(['subscribers/list'])}}">Subscribers</a></li>
                     </ul>
                 </li>
             </ul>

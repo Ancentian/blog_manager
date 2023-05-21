@@ -12,6 +12,7 @@ use App\Http\Controllers\Setting;
 use App\Http\Controllers\AmaniController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\SubscribersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -129,3 +130,7 @@ Route::controller(ArticleController::class)->group(function () {
     Route::get('publish/comment/{id}', 'publishComment');//Update Status
 });
 
+// ------------------------ Blogs -------------------------------//
+Route::controller(SubscribersController::class)->group(function () {
+    Route::get('subscribers/list', 'index')->middleware('auth')->name('subscribers/list'); 
+});
