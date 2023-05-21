@@ -74,7 +74,7 @@
 	<!-- ======= Top Bar ======= -->
 	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-		  <a href="tel:+254 758 955 488"><i class="bi bi-phone d-flex align-items-center"><span>+254 758 955 488</span></i></a>&nbsp; &nbsp;&nbsp;&nbsp;
+		  {{-- <a href="tel:+254 758 955 488"><i class="bi bi-phone d-flex align-items-center"><span>+254 758 955 488</span></i></a>&nbsp; &nbsp;&nbsp;&nbsp; --}}
 			<!-- Facebook icon -->
 			<i class="bi bi-facebook d-flex align-items-center"><span class="visually-hidden">Facebook</span></i>&nbsp;	&nbsp;	
 			<!-- Twitter icon -->
@@ -83,7 +83,6 @@
 			<i class="bi bi-instagram d-flex align-items-center"><span class="visually-hidden">Instagram</span></i>&nbsp; &nbsp;
 			<!-- LinkedIn icon -->
 			<i class="bi bi-linkedin d-flex align-items-center"><span class="visually-hidden">LinkedIn</span></i>&nbsp; &nbsp;
-
 			<!-- WhatsApp icon -->
 			<i class="bi bi-whatsapp d-flex align-items-center"><span class="visually-hidden">WhatsApp</span></i>&nbsp; &nbsp;
 
@@ -126,7 +125,7 @@
 		<div class="container">
 		  <div class="row">
 			<div class="col-md-8">
-				<h3>Delicious</h3>
+				<h3>Amani</h3>
 		  <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
 		  <div class="social-links">
 			<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -140,7 +139,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-4">
 				<div class="widget">
 					<h3 class="text-capitalize">Subscribe Us</h3>
-					<p>Subscribe to get latest news article and resources  </p>	
+					<p>Subscribe to get latest Articles </p>	
 					<form action="{{route('storeSubscriber')}}" class="sub-form" method="POST">
 						@csrf
 						<input type="email" name="email" class="form-control mb-3 @error('email') is-invalid @enderror" placeholder="Subscribe Now ...">
@@ -156,15 +155,11 @@
 			</div>
 		  </div>
 		  <div class="copyright">
-			&copy; Copyright <strong><span>Delicious</span></strong>. All Rights Reserved
+			&copy; Copyright <strong><span>Ancent</span></strong>. All Rights Reserved
 		  </div>
 		  
 		  <div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+			Designed by <a href="#"><span>Ancent</span></a>
 		  </div>
 		</div>
 	  </footer><!-- End Footer -->
@@ -195,8 +190,5 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" ></script>
-		
-	
 	</body>
-	
 	</html>

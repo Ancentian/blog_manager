@@ -126,27 +126,25 @@ Head over to <a href="{{route('blogs')}}"><b>my Blog Section</b></a> to find out
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="section-title">
-					<span class="h6 text-color">Latest News</span>
-					<h2 class="mt-3 content-title text-white">Latest Articles</h2>
+					<span class="h6 text-color">Articles</span>
+					<h2 class="content-title text-white">Latest Articles</h2>
 				</div>
 			</div>
 		</div>
 
 		<div class="row justify-content-center">
 			@foreach($articles as $article)
-			<div class="col-lg-4 col-md-6 mb-5">
+			<div class="col-lg-4 col-md-6">
 				<div class="card bg-transparent border-0">
-					<img src="{{ Storage::url('blog_photos/'.$article->upload) }}" alt="" class="img-fluid rounded">
+					<img src="{{ Storage::url('blog_photos/'.$article->upload) }}" style="height: 220px" alt="" class="img-fluid rounded">
 
-					<div class="card-body mt-2">
+					<div class="card-body ">
 						<div class="blog-item-meta">
-							<a href="#" class="text-white-50">Design<span class="ml-2 mr-2">/</span></a>
-							<a href="#"  class="text-white-50">Ui/Ux<span class="ml-2">/</span></a>
+							<a href="#" class="text-white-50">{{ $article->tag_name}}<span class="ml-2 mr-2">/</span></a>
+							
 							<a href="#" class="text-white-50 ml-2"><i class="fa fa-user mr-2"></i>{{$article->author}}</a>
 						</div> 
-
 						<h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white ">{{$article->title}}</a></h3>
-
 						<a href="{{ url('singleBlog/'.$article->id) }}" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
 					</div>
 				</div>
