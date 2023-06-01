@@ -47,6 +47,10 @@ Route::controller(AmaniController::class)->group(function () {
     Route::get('blogsByCategory/{id}', 'blogsByCategory');
     Route::post('/comment', 'storeComment')->name('storeComment');
     Route::post('/subscriber', 'storeSubscriber')->name('storeSubscriber');
+    Route::get('/disclaimer', 'disclaimer')->name('disclaimer');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/terms', 'terms')->name('terms');
+    Route::get('/privacy', 'privacy')->name('privacy');
 });
 
 Route::group(['middleware'=>'auth'],function()

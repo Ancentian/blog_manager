@@ -16,7 +16,7 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>Unlock Your</span> Full Power</h2>
-                <p class="animate__animated animate__fadeInUp">Embrace Your Inner Strength! Join our fitness revolution and sculpt the body of your dreams. Dive into our invigorating fitness section for some workout tips and exhilarating workouts. Get ready to break a sweat and unlock your full potential. Click here to ignite your fitness journey now!</p>
+                <p class="animate__animated animate__fadeInUp">Embrace Your Inner Strength! Join our fitness revolution and sculpt the body of your dreams. Dive into our invigorating fitness section for some workout tips and exhilarating workouts. Get ready to break a sweat and unlock your full potential. <a href="{{ route('blogs') }}">Click Here</a> to ignite your fitness journey now!</p>
               </div>
             </div>
           </div>
@@ -25,8 +25,8 @@
           <div class="carousel-item" style="background-image: url({{asset('set/assets/img/slide/apple.jpeg')}});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Unlock Optimal Health! </h2>
-                <p class="animate__animated animate__fadeInUp">"Discover our health section's treasure trove of invaluable insights and practical advice. Explore a world of wellness where vibrant living and longevity await. From nutrition tips to holistic approaches, we've got you covered. Click here to take charge of your well-being today and embark on a journey towards a healthier, happier you.</p>
+                <h2 class="animate__animated animate__fadeInDown"><span>Unlock</span> Optimal Health! </h2>
+                <p class="animate__animated animate__fadeInUp">Discover our health section's treasure trove of invaluable insights and practical advice. Explore a world of wellness where vibrant living and longevity await. From nutrition tips to holistic approaches, we've got you covered. <a href="{{ route('blogs') }}">Click Here</a> to take charge of your well-being today and embark on a journey towards a healthier, happier you!</p>
               </div>
             </div>
           </div>
@@ -35,8 +35,8 @@
           <div class="carousel-item" style="background-image: url({{ asset('set/assets/img/slide/mind.jpeg') }});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Nurture Your Soul!</h2>
-                <p class="animate__animated animate__fadeInUp">"Elevate Your Mind, Nurture Your Soul! Step into our sanctuary of mental wellness, where tranquility and self-discovery intertwine. Uncover the secrets to cultivating inner peace, reducing stress, and embracing mindfulness. Click here to begin your transformative journey today and embark on a path towards balance and serenity.</p>
+                <h2 class="animate__animated animate__fadeInDown"><span>Nurture</span> Your Soul!</h2>
+                <p class="animate__animated animate__fadeInUp">Elevate Your Mind, Nurture Your Soul! Step into our sanctuary of mental wellness, where tranquility and self-discovery intertwine. Uncover the secrets to cultivating inner peace, reducing stress, and embracing mindfulness. <a href="{{ route('blogs') }}">Click Here</a> to begin your transformative journey today and embark on a path towards balance and serenity.</p>
               </div>
             </div>
           </div>
@@ -62,30 +62,21 @@
 
 	  <div class="row">
 
-		<div class="col-lg-5 align-items-stretch video-box" style='background-image: url("{{asset('set/assets/img/about.jpg')}}");'>
+		<div class="col-lg-5 align-items-stretch video-box" style='background-image: url("{{asset('set/assets/img/gymrope.jpeg')}}");'>
 		  {{-- <a href="#" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a> --}}
 		</div>
 
 		<div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
 
 		  <div class="content">
-			<h3><strong>HELLO & WELCOME TO MY BLOG.</strong></h3>
-			<p>I'm thrilled to have you here and can't wait to share my passion for health, fitness, and wellness with you.
-I've always been fascinated by the world of health and fitness. But nothing seemed to work despite doing all I could to achieve my health, wellness and fitness goals. However, when I realized I was doing everything wrong, I truly started to see results.</p>
-<p>With the help of my trainers and health experts, I discovered the right balance of physical exercise, mental well-being, and proper nutrition that works for me.
-And now, I'm excited to share everything I've learned with you. Whether you're struggling to lose weight, looking to enhance your fitness routine, or simply seeking a healthier lifestyle, my blog is here to help.
-With practical tips, expert advice, and my personal experiences, I’m confident we can work together to achieve your health and wellness goals.</p>
-<p>So join me on this journey of discovery, and let's get started!
-Head over to <a href="{{route('blogs')}}"><b>my Blog Section</b></a> to find out more, and feel free to leave your comments and feedback. Together, let's make health, fitness, and wellness a part of our daily lives!"</p>
-			{{-- <p class="fst-italic">
-			  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-			  magna aliqua.
-			</p>
-			<ul>
+			<h3><strong>HELLO & WELCOME</strong></h3>
+			<p>We’re thrilled to have you here and can't wait to share the passion for health, fitness, and wellness with you! Whether you're struggling to lose weight, looking to enhance your fitness routine, or simply seeking a healthier lifestyle, this blog is here to help.</p>
+				<p>Head over to the BLOG to find out more, and feel free to leave your comments and feedback. TOGETHER, let's make health, fitness, and wellness a part of our daily lives!</p>
+			{{-- <ul>
 			  <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
 			  <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
 			  <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-			</ul> --}}
+			</ul>  --}}
 			
 		  </div>
 
@@ -145,7 +136,7 @@ Head over to <a href="{{route('blogs')}}"><b>my Blog Section</b></a> to find out
 							<a href="#" class="text-white-50 ml-2"><i class="fa fa-user mr-2"></i>{{$article->author}}</a>
 						</div> 
 						<h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white ">{{$article->title}}</a></h3>
-						<a href="{{ url('singleBlog/'.$article->id) }}" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
+						<a href="{{ url('singleBlog/'. $article->id) }}" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
 					</div>
 				</div>
 			</div>
@@ -154,7 +145,7 @@ Head over to <a href="{{route('blogs')}}"><b>my Blog Section</b></a> to find out
 	</div>
 </section>
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="testimonials" hidden>
 		<div class="container position-relative">
   
 		  <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">

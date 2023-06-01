@@ -9,9 +9,7 @@
 							<span class="text-white">Our blog</span>
 							<h1 class="text-capitalize mb-4 text-lg">{{$articles[0]->tag_name}} articles</h1>
 							<ul class="list-inline">
-								<li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-								<li class="list-inline-item"><span class="text-white">/</span></li>
-								<li class="list-inline-item"><a href="#" class="text-white-50">Our blog</a></li>
+								<li class="list-inline-item"><a href="{{route('blogIndex')}}" class="text-white">Home</a></li>
 							</ul>
 						</div>
 					</div>
@@ -34,7 +32,7 @@
 												<span class="text-muted text-capitalize mr-3"><i class="ti-pencil-alt mr-2"></i>{{$article->tag_name}}</span>
 											</div> 
 											<h3 class="mt-3 mb-3"><a href="{{ url('singleBlog/'.$article->id) }}">{{$article->title}}</a></h3>
-											<p class="mb-4">{!! Str::limit($article->excerpt, 110, '...') !!}</p>
+											<p class="mb-4">{!! Str::limit($article->excerpt, 160, '...') !!}</p>
 											
 											<a href="{{ url('singleBlog/'.$article->id) }}" class="btn btn-small btn-main btn-round-full">Read More</a>
 										</div>
@@ -116,5 +114,4 @@
 				</div>
 			</div>
 		</section>
-		
 		@endsection
