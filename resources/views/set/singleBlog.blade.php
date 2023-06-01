@@ -7,12 +7,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="block text-center">
-							<span class="text-white">News details</span>
+							<span class="text-white">Articles</span>
 							<h1 class="text-capitalize mb-4 text-lg">{{$article->title}}</h1>
 							<ul class="list-inline">
 								<li class="list-inline-item"><a href="{{route('blogIndex')}}" class="text-white">Home</a></li>
-								<li class="list-inline-item"><span class="text-white">/</span></li>
-								<li class="list-inline-item"><a href="#" class="text-white-50">News details</a></li>
+								{{-- <li class="list-inline-item"><span class="text-white">/</span></li>
+								<li class="list-inline-item"><a href="#" class="text-white-50">News details</a></li> --}}
 							</ul>
 						</div>
 					</div>
@@ -46,16 +46,13 @@
 									<div class="blog-item-content bg-white p-5">
 										<div class="blog-item-meta bg-gray py-1 px-2">
 											<span class="text-muted text-capitalize mr-3"><i class="ti-pencil-alt mr-2"></i>{{$article->tag_name}}</span>
-											<span class="text-muted text-capitalize mr-3"><i class="ti-comment mr-2"></i>5 Comments</span>
-											{{-- @php
-												$date = $article->created_at;
-												$date = Carbon::parse($date); // now date is a carbon instance
-												$elapsed = $date->diffForHumans(Carbon::now());
-											@endphp --}}
-											<span class="text-black text-capitalize mr-3"><i class="ti-time mr-1"></i> </span>
+											<span class="text-muted text-capitalize mr-3"></span>
+											<span class="text-muted text-capitalize mr-3"><i class="ti-time mr-1"></i> {{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}</span>
+											
+
 										</div> 
 										
-										<h2 class="mt-3 mb-4"><a href="blog-single.html">Improve design with typography?</a></h2>
+										<h2 class="mt-3 mb-4"><a href="#">{{$article->title}}</a></h2>
 										<p class="lead mb-4">{!! $article->introduction !!}</p>
 										
 										<p>{!! $article->body !!}</p>
@@ -69,7 +66,7 @@
 												</noscript>
 											</figure>
 											<p>
-												<cite class="sc-title"><br>{{$article->author}}'s Take:<br></cite>
+												<cite class="sc-title"><br>Author's Take:<br></cite>
 											</p>
 											<p class="custom-p">{!!$article->excerpt!!}</p>
 										</div>
@@ -137,7 +134,6 @@
 							
 							<div class="col-lg-12 mb-5">
 								<div class="comment-area card border-0 p-5">
-									<h4 class="mb-4">2 Comments</h4>
 									<ul class="comment-tree list-unstyled">
 										@foreach($comments as $comment)
 										@if ($comment->status == 1)

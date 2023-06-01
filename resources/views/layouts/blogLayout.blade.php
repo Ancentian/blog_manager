@@ -61,16 +61,16 @@
         color: #c13584;
     }
 </style>
-	</style>
+<script>
+	window.addEventListener('DOMContentLoaded', function() {
+		var yearSpan = document.getElementById('year');
+		var currentYear = new Date().getFullYear();
+		yearSpan.textContent = currentYear;
+	});
+</script>
 </head>
 
-<body>
-	
-	<!-- Header Start --> 
-	
-
-	
-	<!-- Header Close --> 
+<body> 
 	<!-- ======= Top Bar ======= -->
 	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
@@ -101,10 +101,12 @@
 		  <nav id="navbar" class="navbar order-last order-lg-0">
 			<ul>
 			  <li><a class="nav-link scrollto active" href="{{route('blogIndex')}}">Home</a></li>
-			  <li><a class="nav-link scrollto" href="#about">Portfolio</a></li>
-			  <li class="dropdown"><a href="#"><span>BLOGS</span> <i class="bi bi-chevron-down"></i></a>
+			  <li><a class="nav-link scrollto" href="{{route('about')}}">About</a></li>
+			  <li class="dropdown"><a href="#"><span>BLOG</span> <i class="bi bi-chevron-down"></i></a>
 				<ul>
-				  <li><a href="{{route('blogs')}}">Blogs</a></li>
+					@foreach($tags as $tag)
+				  <li><a href="{{ url('blogsByCategory/'.$tag->id) }}">{{$tag->tag_name}}</a></li>
+				  @endforeach
 				</ul>
 			  </li>
 			  <li><a class="nav-link scrollto" href="{{route('contact')}}">Contact</a></li>
@@ -124,7 +126,7 @@
 	<footer id="footer">
 		<div class="container">
 		  <div class="row">
-			<div class="col-md-8">
+			<div class="col-md-4">
 				<h3>Amani</h3>
 		  <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
 		  <div class="social-links">
@@ -136,13 +138,25 @@
 		  </div>
 		  
 			</div>
+			<div class="col-md-4 text-center">
+				<div class="widget">
+					<h3 class="text-capitalize">Useful Links</h3>
+					<ul style="list-style-type: none;">
+						<li style="text-align: center;"><i class="bx bx-check-double"></i><a href="{{route('disclaimer')}}">Disclaimer</a></li>
+						<li style="text-align: center;"><i class="bx bx-check-double"></i><a href="{{route('about')}}">About Us</a></li>
+						<li style="text-align: center;"><i class="bx bx-check-double"></i><a href="{{route('privacy')}}">Privacy Policy</a></li>
+						<li style="text-align: center;"><i class="bx bx-check-double"></i><a href="{{route('terms')}}">Terms & Conditions</a></li>
+					</ul>					
+				</div>
+
+			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4">
 				<div class="widget">
-					<h3 class="text-capitalize">Subscribe Us</h3>
-					<p>Subscribe to get latest Articles </p>	
+					<h3 class="text-capitalize">Subscribe</h3>
+					<p>Your Harmonius Gains newsletter is all about your health, fitness, and well-being. </p>	
 					<form action="{{route('storeSubscriber')}}" class="sub-form" method="POST">
 						@csrf
-						<input type="email" name="email" class="form-control mb-3 @error('email') is-invalid @enderror" placeholder="Subscribe Now ...">
+						<input type="email" name="email" class="form-control mb-3 @error('email') is-invalid @enderror" placeholder="Enter Email ...">
 						@error('email')
 							<span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>
@@ -155,11 +169,11 @@
 			</div>
 		  </div>
 		  <div class="copyright">
-			&copy; Copyright <strong><span>Ancent</span></strong>. All Rights Reserved
+			&copy; Copyright <strong><span id="year"></span></strong> All Rights Reserved
 		  </div>
 		  
 		  <div class="credits">
-			Designed by <a href="#"><span>Ancent</span></a>
+			Designed by <a href="#"><span class="love-icon"><i class="fas fa-heart"></i></span> Ancent</a>
 		  </div>
 		</div>
 	  </footer><!-- End Footer -->

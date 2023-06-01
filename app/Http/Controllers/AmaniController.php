@@ -21,7 +21,7 @@ class AmaniController extends Controller
     public function index()
     {
         $articles = Article::leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
-            ->select('articles.*', 'tags.id', 'tags.tag_name')
+            ->select('articles.*', 'tags.id as tagID', 'tags.tag_name')
             ->orderBy('articles.created_at', 'desc')
             ->limit(3)
             ->get();
@@ -48,8 +48,8 @@ class AmaniController extends Controller
         $article = DB::table('articles')
             ->where('articles.id', '=', $id)
             ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
-            ->select('articles.*', 'tags.tag_name')
-            ->get()->first();
+            ->select('articles.id', 'articles.title', 'articles.excerpt', 'articles.introduction', 'articles.body', 'articles.upload', 'articles.author', 'articles.created_at', 'tags.tag_name')
+            ->first();
         $comments = DB::table('comments')
             ->where('comments.article_id', '=', $id)
             ->leftJoin('articles', 'articles.id', '=', 'comments.article_id')
@@ -57,12 +57,8 @@ class AmaniController extends Controller
             ->get();
         $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(10)->get();
         $articles = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
-        return view('set.singleBlog', compact('article', 'articles', 'tags', 'comments'));
-    }
 
-    public function contact()
-    {
-        return view('set.contact');
+        return view('set.singleBlog', compact('article', 'articles', 'tags', 'comments'));
     }
 
     public function blogsByCategory($id)
@@ -70,10 +66,10 @@ class AmaniController extends Controller
         $tags = Tag::latest()->orderBy('created_at', 'desc')->limit(10)->get();
         $blogs = Article::latest()->orderBy('created_at', 'desc')->limit(3)->get();
         $articles = DB::table('articles')
-                ->where('articles.tag_id', '=', $id)
-                ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
-                ->select('articles.*', 'tags.id', 'tags.tag_name')
-                ->get();
+            ->where('articles.tag_id', '=', $id)
+            ->leftJoin('tags', 'tags.id', '=', 'articles.tag_id')
+            ->select('articles.id', 'articles.title', 'articles.excerpt', 'articles.introduction', 'articles.body', 'articles.upload', 'articles.author', 'tags.id AS tag_id', 'tags.tag_name')
+            ->get();
         if ($articles->count() == 0) {
             Toastr::error("No Content Available", 'Error');
             return redirect()->back();
@@ -111,57 +107,59 @@ class AmaniController extends Controller
     }
 
     public function storeSubscriber(Request $request)
-{
-    $request->validate([
-        'email' => 'required|string|unique:subscribers,email',
-    ], 
-    [
-        'email.unique' => 'This email is already Taken.',
-    ]);
-
-    DB::beginTransaction();
-
-    try {
-        $subscriber = new Subscriber;
-        $subscriber->email = $request->email;
-
-        //Send Mail
-        $email = $subscriber->email;
-        $subscriber->save();
-        Mail::to($email)->send(new Subscribe($email));
-        //End Send Mail
-        
-        DB::commit();
-        Toastr::success("You've Subscribed Successfully", 'Success');
-        return redirect()->back();
-
-    } catch(\Exception $e) {
-        DB::rollback();
-        Toastr::error('Failed, Try Again!', 'Error');
-        return redirect()->back();
-    }
-}
-
-
-    public function show($id)
     {
-        //
+        $request->validate([
+            'email' => 'required|string|unique:subscribers,email',
+        ], 
+        [
+            'email.unique' => 'This email is already Taken.',
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $subscriber = new Subscriber;
+            $subscriber->email = $request->email;
+
+            //Send Mail
+            $email = $subscriber->email;
+            $subscriber->save();
+            Mail::to($email)->send(new Subscribe($email));
+            //End Send Mail
+            
+            DB::commit();
+            Toastr::success("You've Subscribed Successfully", 'Success');
+            return redirect()->back();
+
+        } catch(\Exception $e) {
+            DB::rollback();
+            Toastr::error('Failed, Try Again!', 'Error');
+            return redirect()->back();
+        }
     }
 
+    public function contact()
+    {
+        return view('set.contact');
+    }
+
+    public function disclaimer()
+    {
+        return view('set.disclaimer');
+    }
+
+    public function about()
+    {
+        return view('set.about');
+    }
     
-    public function edit($id)
+    public function terms()
     {
-        //
+        return view('set.terms_conditions');
     }
-
     
-    public function update(Request $request, $id)
+    public function privacy()
     {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        return view('set.privacy_policy');
     }
 }

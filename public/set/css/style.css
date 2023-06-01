@@ -284,12 +284,12 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 /* Links */
 a {
-  color: #242424;
+  color: #ffa500;
   text-decoration: none;
 }
 
 a:focus, a:hover {
-  color: #ffa500;
+  color: #d0cada;
   text-decoration: none;
 }
 
@@ -499,7 +499,7 @@ ul.dropdown-menu li {
 }
 
 .bg-1 {
-  background: url("../images/bg/home-2.jpg") no-repeat 50% 50%;
+  background: url("../images/bg/solid.jpeg") no-repeat 50% 50%;
   background-size: cover;
 }
 
